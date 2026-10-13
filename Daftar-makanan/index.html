@@ -1,94 +1,291 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Warung Sederhana – Daftar Menu</title>
-<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#f7f6f1;--fg:#1f2a22;--muted:#5d6b61;--accent:#1f6b45;--gold:#e0a21b;--line:#d9dccf;--card:#fff;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141c17;--fg:#eef1ea;--muted:#a3b0a6;--accent:#5cc189;--gold:#f0b83a;--line:#2a372e;--card:#1b251f}}
-:root[data-theme="dark"]{--bg:#141c17;--fg:#eef1ea;--muted:#a3b0a6;--accent:#5cc189;--gold:#f0b83a;--line:#2a372e;--card:#1b251f}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.55 "Nunito Sans",system-ui,sans-serif}
-header{background:var(--accent);color:#fff;padding:48px 20px 36px;text-align:center}
-header h1{font:400 clamp(2rem,6vw,3.2rem)/1.1 "Bree Serif",Georgia,serif;margin:0 0 8px}
-header p{margin:0;opacity:.9}
-header .jam{display:inline-block;margin-top:16px;padding:6px 14px;border-radius:999px;background:var(--gold);color:#2a1e00;font-weight:700;font-size:.95rem}
-nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:20px 16px 4px}
-nav button{font:600 .95rem "Nunito Sans",sans-serif;padding:8px 16px;border-radius:999px;border:1.5px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
-nav button[aria-pressed="true"]{background:var(--accent);color:#fff}
-nav button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-main{max-width:720px;margin:0 auto;padding:12px 20px 48px}
-section{margin-top:28px}
-h2{font:400 1.7rem "Bree Serif",Georgia,serif;margin:0 0 6px;color:var(--accent)}
-ul{list-style:none;margin:0;padding:0}
-li{display:flex;gap:16px;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px dashed var(--line)}
-li b{display:block;font-size:1.05rem}
-li span{color:var(--muted);font-size:.93rem}
-.harga{font-weight:700;white-space:nowrap;color:var(--fg)}
-footer{text-align:center;color:var(--muted);font-size:.9rem;padding:0 20px 40px}
-</style>
-</head>
-<body>
-<header>
-  <h1>Warung Sederhana</h1>
-  <p>Masakan rumahan, harga bersahabat.</p>
-  <div class="jam">Buka setiap hari, 08.00–21.00</div>
-</header>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Warung Sederhana – Daftar Menu</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Nunito+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f7f6f1;
+        --fg: #1f2a22;
+        --muted: #5d6b61;
+        --accent: #1f6b45;
+        --gold: #e0a21b;
+        --line: #d9dccf;
+        --card: #fff;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #141c17;
+          --fg: #eef1ea;
+          --muted: #a3b0a6;
+          --accent: #5cc189;
+          --gold: #f0b83a;
+          --line: #2a372e;
+          --card: #1b251f;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #141c17;
+        --fg: #eef1ea;
+        --muted: #a3b0a6;
+        --accent: #5cc189;
+        --gold: #f0b83a;
+        --line: #2a372e;
+        --card: #1b251f;
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font:
+          400 17px/1.55 "Nunito Sans",
+          system-ui,
+          sans-serif;
+      }
+      header {
+        background: var(--accent);
+        color: #fff;
+        padding: 48px 20px 36px;
+        text-align: center;
+      }
+      header h1 {
+        font:
+          400 clamp(2rem, 6vw, 3.2rem)/1.1 "Bree Serif",
+          Georgia,
+          serif;
+        margin: 0 0 8px;
+      }
+      header p {
+        margin: 0;
+        opacity: 0.9;
+      }
+      header .jam {
+        display: inline-block;
+        margin-top: 16px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: var(--gold);
+        color: #2a1e00;
+        font-weight: 700;
+        font-size: 0.95rem;
+      }
+      nav {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 20px 16px 4px;
+      }
+      nav button {
+        font:
+          600 0.95rem "Nunito Sans",
+          sans-serif;
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: 1.5px solid var(--accent);
+        background: transparent;
+        color: var(--accent);
+        cursor: pointer;
+      }
+      nav button[aria-pressed="true"] {
+        background: var(--accent);
+        color: #fff;
+      }
+      nav button:focus-visible {
+        outline: 3px solid var(--gold);
+        outline-offset: 2px;
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 12px 20px 48px;
+      }
+      section {
+        margin-top: 28px;
+      }
+      h2 {
+        font:
+          400 1.7rem "Bree Serif",
+          Georgia,
+          serif;
+        margin: 0 0 6px;
+        color: var(--accent);
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        display: flex;
+        gap: 16px;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 14px 0;
+        border-bottom: 1px dashed var(--line);
+      }
+      li b {
+        display: block;
+        font-size: 1.05rem;
+      }
+      li span {
+        color: var(--muted);
+        font-size: 0.93rem;
+      }
+      .harga {
+        font-weight: 700;
+        white-space: nowrap;
+        color: var(--fg);
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+        padding: 0 20px 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Warung Sederhana</h1>
+      <p>Masakan rumahan, harga bersahabat.</p>
+      <div class="jam">Buka setiap hari, 08.00–21.00</div>
+    </header>
 
-<nav aria-label="Kategori menu" id="filter">
-  <button aria-pressed="true" data-k="all">Semua</button>
-  <button aria-pressed="false" data-k="utama">Makanan utama</button>
-  <button aria-pressed="false" data-k="camilan">Camilan</button>
-  <button aria-pressed="false" data-k="minuman">Minuman</button>
-</nav>
+    <nav aria-label="Kategori menu" id="filter">
+      <button aria-pressed="true" data-k="all">Semua</button>
+      <button aria-pressed="false" data-k="utama">Makanan utama</button>
+      <button aria-pressed="false" data-k="camilan">Camilan</button>
+      <button aria-pressed="false" data-k="minuman">Minuman</button>
+    </nav>
 
-<main>
-  <section data-k="utama">
-    <h2>Makanan utama</h2>
-    <ul>
-      <li><div><b>Nasi goreng spesial</b><span>Telur mata sapi, ayam suwir, kerupuk</span></div><div class="harga">Rp18.000</div></li>
-      <li><div><b>Ayam goreng kremes</b><span>Nasi, lalapan, sambal terasi</span></div><div class="harga">Rp22.000</div></li>
-      <li><div><b>Soto ayam</b><span>Kuah kuning, soun, telur rebus, nasi</span></div><div class="harga">Rp17.000</div></li>
-      <li><div><b>Mie goreng jawa</b><span>Bakmi, sayuran, telur</span></div><div class="harga">Rp16.000</div></li>
-      <li><div><b>Gado-gado</b><span>Sayur rebus, tahu, tempe, bumbu kacang</span></div><div class="harga">Rp15.000</div></li>
-      <li><div><b>Nasi rames</b><span>Orek tempe, telur balado, sayur</span></div><div class="harga">Rp14.000</div></li>
-    </ul>
-  </section>
+    <main>
+      <section data-k="utama">
+        <h2>Makanan utama</h2>
+        <ul>
+          <li>
+            <div>
+              <b>Nasi goreng spesial</b
+              ><span>Telur mata sapi, ayam suwir, kerupuk</span>
+            </div>
+            <div class="harga">Rp18.000</div>
+          </li>
+          <li>
+            <div>
+              <b>Ayam goreng kremes</b><span>Nasi, lalapan, sambal terasi</span>
+            </div>
+            <div class="harga">Rp22.000</div>
+          </li>
+          <li>
+            <div>
+              <b>Soto ayam</b><span>Kuah kuning, soun, telur rebus, nasi</span>
+            </div>
+            <div class="harga">Rp17.000</div>
+          </li>
+          <li>
+            <div><b>Mie goreng jawa</b><span>Bakmi, sayuran, telur</span></div>
+            <div class="harga">Rp16.000</div>
+          </li>
+          <li>
+            <div>
+              <b>Gado-gado</b
+              ><span>Sayur rebus, tahu, tempe, bumbu kacang</span>
+            </div>
+            <div class="harga">Rp15.000</div>
+          </li>
+          <li>
+            <div>
+              <b>Nasi rames</b><span>Orek tempe, telur balado, sayur</span>
+            </div>
+            <div class="harga">Rp14.000</div>
+          </li>
+        </ul>
+      </section>
 
-  <section data-k="camilan">
-    <h2>Camilan</h2>
-    <ul>
-      <li><div><b>Tahu isi</b><span>4 potong, cabai rawit</span></div><div class="harga">Rp8.000</div></li>
-      <li><div><b>Pisang goreng</b><span>5 potong, taburan keju</span></div><div class="harga">Rp10.000</div></li>
-      <li><div><b>Tempe mendoan</b><span>4 potong, sambal kecap</span></div><div class="harga">Rp9.000</div></li>
-      <li><div><b>Kentang goreng</b><span>Porsi besar</span></div><div class="harga">Rp12.000</div></li>
-    </ul>
-  </section>
+      <section data-k="camilan">
+        <h2>Camilan</h2>
+        <ul>
+          <li>
+            <div><b>Tahu isi</b><span>4 potong, cabai rawit</span></div>
+            <div class="harga">Rp8.000</div>
+          </li>
+          <li>
+            <div><b>Pisang goreng</b><span>5 potong, taburan keju</span></div>
+            <div class="harga">Rp10.000</div>
+          </li>
+          <li>
+            <div><b>Tempe mendoan</b><span>4 potong, sambal kecap</span></div>
+            <div class="harga">Rp9.000</div>
+          </li>
+          <li>
+            <div><b>Kentang goreng</b><span>Porsi besar</span></div>
+            <div class="harga">Rp12.000</div>
+          </li>
+        </ul>
+      </section>
 
-  <section data-k="minuman">
-    <h2>Minuman</h2>
-    <ul>
-      <li><div><b>Es teh manis</b></div><div class="harga">Rp4.000</div></li>
-      <li><div><b>Es jeruk</b></div><div class="harga">Rp6.000</div></li>
-      <li><div><b>Kopi tubruk</b></div><div class="harga">Rp6.000</div></li>
-      <li><div><b>Es kelapa muda</b></div><div class="harga">Rp10.000</div></li>
-      <li><div><b>Air mineral</b></div><div class="harga">Rp3.000</div></li>
-    </ul>
-  </section>
-</main>
+      <section data-k="minuman">
+        <h2>Minuman</h2>
+        <ul>
+          <li>
+            <div><b>Es teh manis</b></div>
+            <div class="harga">Rp4.000</div>
+          </li>
+          <li>
+            <div><b>Es jeruk</b></div>
+            <div class="harga">Rp6.000</div>
+          </li>
+          <li>
+            <div><b>Kopi tubruk</b></div>
+            <div class="harga">Rp6.000</div>
+          </li>
+          <li>
+            <div><b>Es kelapa muda</b></div>
+            <div class="harga">Rp10.000</div>
+          </li>
+          <li>
+            <div><b>Air mineral</b></div>
+            <div class="harga">Rp3.000</div>
+          </li>
+        </ul>
+      </section>
+    </main>
 
-<footer>Harga sudah termasuk pajak. Tanyakan ke kasir untuk level pedas.</footer>
+    <footer>
+      Harga sudah termasuk pajak. Tanyakan ke kasir untuk level pedas.
+    </footer>
 
-<script>
-const btns=document.querySelectorAll('#filter button'),secs=document.querySelectorAll('section');
-btns.forEach(b=>b.addEventListener('click',()=>{
-  btns.forEach(x=>x.setAttribute('aria-pressed',x===b));
-  secs.forEach(s=>s.hidden=!(b.dataset.k==='all'||s.dataset.k===b.dataset.k));
-}));
-</script>
-</body>
+    <script>
+      const btns = document.querySelectorAll("#filter button"),
+        secs = document.querySelectorAll("section");
+      btns.forEach((b) =>
+        b.addEventListener("click", () => {
+          btns.forEach((x) => x.setAttribute("aria-pressed", x === b));
+          secs.forEach(
+            (s) =>
+              (s.hidden = !(
+                b.dataset.k === "all" || s.dataset.k === b.dataset.k
+              )),
+          );
+        }),
+      );
+    </script>
+  </body>
 </html>
