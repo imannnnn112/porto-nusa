@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pesta Ulang Tahun Dinda ke-17</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#fff9ef; --surface:#ffffff; --ink:#26245c; --muted:#5b5990;
+  --pink:#ff4f87; --yellow:#ffc933; --mint:#2fd1a3; --indigo:#3b36a8;
+  --on-pink:#ffffff; --line:#e6defa; --ok:#12a37a; --bad:#d8365f;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16153a; --surface:#221f55; --ink:#f6f2ff; --muted:#b9b5e6;
+    --line:#3a3680; --ok:#3ee0b2; --bad:#ff7a9c;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16153a; --surface:#221f55; --ink:#f6f2ff; --muted:#b9b5e6;
+  --line:#3a3680; --ok:#3ee0b2; --bad:#ff7a9c;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;font-size:17px;line-height:1.6}
+h1,h2,h3{font-family:"Fredoka","Trebuchet MS",sans-serif;line-height:1.1;margin:0}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+
+/* HERO */
+.hero{background:var(--indigo);color:#fff;padding:56px 0 72px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;left:-5%;right:-5%;bottom:-1px;height:34px;
+  background:radial-gradient(circle at 20px 0,var(--bg) 19px,transparent 20px) 0 0/40px 34px repeat-x}
+.hero .small{font-weight:700;color:var(--yellow);margin:0 0 10px;font-size:1.05rem}
+.hero h1{font-size:clamp(2.6rem,10vw,5rem);font-weight:700}
+.hero h1 .age{display:inline-block;background:var(--pink);color:#fff;border-radius:18px;padding:0 .25em;transform:rotate(-4deg);margin-left:.1em}
+.hero p.lead{max-width:30ch;font-size:1.15rem;margin:18px 0 28px;color:#e9e6ff}
+.btn{display:inline-block;border:0;cursor:pointer;font:600 1.05rem "Fredoka",sans-serif;padding:14px 26px;border-radius:999px;background:var(--yellow);color:#26245c;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.alt{background:var(--pink);color:#fff}
+.balloons{position:absolute;right:4%;top:36px;display:flex;gap:10px;opacity:.95}
+.balloons i{display:block;width:44px;height:56px;border-radius:50% 50% 48% 48%;position:relative}
+.balloons i::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:60px;background:rgba(255,255,255,.5)}
+.balloons i:nth-child(1){background:var(--pink);transform:translateY(10px)}
+.balloons i:nth-child(2){background:var(--yellow);transform:translateY(-8px)}
+.balloons i:nth-child(3){background:var(--mint);transform:translateY(18px)}
+@media(max-width:520px){.balloons{display:none}}
+@media(prefers-reduced-motion:no-preference){
+  .balloons i{animation:bob 4s ease-in-out infinite}
+  .balloons i:nth-child(2){animation-delay:-1.3s}.balloons i:nth-child(3){animation-delay:-2.6s}
+  @keyframes bob{50%{margin-top:-12px}}
+}
+
+/* INFO */
+section{padding:48px 0}
+h2{font-size:2rem;margin-bottom:18px}
+.info{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:18px 20px}
+.card h3{font-size:1.15rem;margin-bottom:6px}
+.card p{margin:0;color:var(--muted)}
+.card strong{display:block;color:var(--ink);font-size:1.1rem}
+.dress{margin-top:14px;border-radius:20px;background:var(--mint);color:#0d3a2e;padding:16px 20px;font-weight:700}
+
+/* QUIZ */
+.quiz{background:var(--surface);border:2px solid var(--line);border-radius:28px;padding:26px 22px}
+.bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden;margin-bottom:6px}
+.bar span{display:block;height:100%;width:0;background:var(--pink);transition:width .3s}
+.count{color:var(--muted);font-size:.95rem;margin:0 0 14px}
+.q{font:600 1.5rem/1.25 "Fredoka",sans-serif;margin:0 0 16px}
+.opts{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.opt{width:100%;text-align:left;font:600 1.02rem "Nunito",sans-serif;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:13px 16px;cursor:pointer;transition:border-color .15s}
+.opt:hover:not(:disabled){border-color:var(--indigo)}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--bg))}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 16%,var(--bg))}
+.opt:disabled{cursor:default}
+.fb{min-height:1.6em;margin:14px 0 0;font-weight:700}
+.next{margin-top:12px}
+.result{text-align:center;padding:8px 0}
+.result .score{font:700 4rem "Fredoka",sans-serif;color:var(--pink);line-height:1}
+.result p{max-width:34ch;margin:10px auto 18px}
+[hidden]{display:none!important}
+footer{text-align:center;color:var(--muted);padding:12px 0 48px}
+.conf{position:fixed;top:-20px;font-size:1.6rem;pointer-events:none;z-index:20;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="balloons" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <p class="small">Kamu diundang ke pesta</p>
+    <h1>Adiba<br>ulang tahun <span class="age">17</span></h1>
+    <p class="lead">Makan enak, musik seru, dan kuis berhadiah. Jangan sampai ketinggalan!</p>
+    <a class="btn" href="#kuis">Main kuis dulu</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="acara">
+    <h2>Detail acara</h2>
+    <div class="info">
+      <div class="card"><h3>Hari &amp; tanggal</h3><strong>Sabtu, 24 Oktober 2026</strong><p>Pukul 16.00 WIB sampai selesai</p></div>
+      <div class="card"><h3>Tempat</h3><strong>Rumah Dinda</strong><p>Jl. Mawar No. 17, Semarang</p></div>
+      <div class="card"><h3>Konfirmasi</h3><strong>Adiba: 0812-3456-7890</strong><p>Kabari sebelum 20 Oktober ya</p></div>
+    </div>
+    <div class="dress">Dress code: warna cerah. Pink, kuning, atau hijau mint lebih bagus!</div>
+  </section>
+
+  <section id="kuis">
+    <h2>Kuis: seberapa kenal kamu sama adiba?</h2>
+    <div class="quiz" id="quiz">
+      <div id="play">
+        <div class="bar" aria-hidden="true"><span id="prog"></span></div>
+        <p class="count" id="count"></p>
+        <p class="q" id="q" aria-live="polite"></p>
+        <ul class="opts" id="opts"></ul>
+        <p class="fb" id="fb" aria-live="polite"></p>
+        <button class="btn alt next" id="next" hidden></button>
+      </div>
+      <div class="result" id="result" hidden>
+        <div class="score" id="score"></div>
+        <h3 id="title"></h3>
+        <p id="msg"></p>
+        <button class="btn alt" id="again">Main lagi</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Sampai jumpa di pestanya!</footer>
+
+<script>
+/* Ubah isi kuis di sini: q = pertanyaan, o = pilihan, a = nomor jawaban benar (mulai dari 0), n = catatan */
+const QUIZ = [
+  {q:"Apa makanan favorit Adiba?", o:["Bakso","Nasi goreng","Spageti","Sushi"], a:1, n:"Nasi goreng, apalagi pakai telur ceplok."},
+  {q:"Warna kesukaan Adiba?", o:["Pink","Biru","Hitam","Hijau"], a:0, n:"Pink, makanya dress code-nya cerah."},
+  {q:"Hobi Dinda di akhir pekan?", o:["Mendaki gunung","Menggambar","Main game","Memasak"], a:1, n:"Menggambar. Siapa tahu ada kejutan gambar nanti."},
+  {q:"Dinda ulang tahun yang ke berapa?", o:["16","17","18","19"], a:1, n:"Ke-17, usia yang spesial!"},
+  {q:"Hadiah apa yang paling Dinda mau?", o:["Buku sketsa","Sepatu","Pelukan","Kue besar"], a:3, n:"Kue besar. Untung ada tiga tingkat."}
+];
+const RESULT = [
+  [5,"Sahabat sejati!","Kamu hafal semua tentang Dinda. Hadiah spesial menunggu di pesta."],
+  [3,"Lumayan kenal","Hampir semuanya benar. Ngobrol lebih banyak di pesta, ya."],
+  [0,"Masih perlu kenalan","Tenang, pestanya jadi kesempatan terbaik buat kenal Dinda lebih dekat."]
+];
+
+let i=0, score=0, locked=false;
+const $=id=>document.getElementById(id);
+
+function show(){
+  const d=QUIZ[i]; locked=false;
+  $("count").textContent=`Pertanyaan ${i+1} dari ${QUIZ.length}`;
+  $("prog").style.width=(i/QUIZ.length*100)+"%";
+  $("q").textContent=d.q; $("fb").textContent=""; $("next").hidden=true;
+  const ul=$("opts"); ul.innerHTML="";
+  d.o.forEach((t,k)=>{
+    const li=document.createElement("li"), b=document.createElement("button");
+    b.className="opt"; b.type="button"; b.textContent=t;
+    b.onclick=()=>pick(k); li.appendChild(b); ul.appendChild(li);
+  });
+}
+function pick(k){
+  if(locked) return; locked=true;
+  const d=QUIZ[i], btns=[...document.querySelectorAll(".opt")];
+  btns.forEach((b,j)=>{b.disabled=true; if(j===d.a)b.classList.add("right")});
+  if(k===d.a){score++; $("fb").textContent="Benar! "+d.n; $("fb").style.color="var(--ok)";}
+  else{btns[k].classList.add("wrong"); $("fb").textContent="Belum tepat. "+d.n; $("fb").style.color="var(--bad)";}
+  $("next").textContent = i===QUIZ.length-1 ? "Lihat hasil" : "Pertanyaan berikutnya";
+  $("next").hidden=false; $("next").focus();
+}
+function finish(){
+  $("play").hidden=true; $("result").hidden=false;
+  $("prog").style.width="100%";
+  $("score").textContent=`${score}/${QUIZ.length}`;
+  const pct=score/QUIZ.length*5;
+  const r=RESULT.find(x=>pct>=x[0]);
+  $("title").textContent=r[1]; $("msg").textContent=r[2];
+  if(score>=3) confetti();
+}
+function confetti(){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const e=["🎉","🎈","✨","🎂","🎁"];
+  for(let n=0;n<28;n++){
+    const s=document.createElement("span"); s.className="conf";
+    s.textContent=e[n%e.length]; s.style.left=Math.random()*100+"vw";
+    s.style.animationDuration=(2.5+Math.random()*2.5)+"s";
+    s.style.animationDelay=Math.random()*.8+"s";
+    document.body.appendChild(s); setTimeout(()=>s.remove(),6500);
+  }
+}
+$("next").onclick=()=>{ if(i===QUIZ.length-1) finish(); else {i++; show();} };
+$("again").onclick=()=>{ i=0; score=0; $("result").hidden=true; $("play").hidden=false; show(); };
+show();
+</script>
+</body>
+</html>

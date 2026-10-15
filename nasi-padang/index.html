@@ -1,0 +1,117 @@
+i<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Resep Nasi Padang di Rumah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF2E3;--ink:#1F2A18;--muted:#56634C;--red:#A3221B;--gold:#E0A100;--card:#FBFCF6;--line:#C9D3B8;--hero:#A3221B;--hero-ink:#FFF3D6;
+color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121C0E;--ink:#EDF2DF;--muted:#A5B397;--red:#E0574D;--card:#1B2916;--line:#33452B;--hero:#6E1410;--hero-ink:#FFE9B8;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121C0E;--ink:#EDF2DF;--muted:#A5B397;--red:#E0574D;--card:#1B2916;--line:#33452B;--hero:#6E1410;--hero-ink:#FFE9B8;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:19px/1.6 "Newsreader",Georgia,serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0}
+.hero{background:var(--hero);color:var(--hero-ink);padding:56px 24px 0;text-align:center;overflow:hidden}
+.hero h1{font-size:clamp(2.6rem,9vw,5.2rem);font-weight:800;letter-spacing:-.02em;max-width:14ch;margin:0 auto}
+.hero p{max-width:46ch;margin:18px auto 0;font-style:italic;font-size:1.15rem}
+.hero svg{display:block;width:min(640px,100%);height:auto;margin:32px auto 0}
+main{max-width:860px;margin:0 auto;padding:48px 20px 64px}
+h2{font-size:clamp(1.7rem,5vw,2.4rem);margin-bottom:8px}
+.lead{color:var(--muted);margin:0 0 24px;max-width:60ch}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:20px}
+.tabs button{flex:none;font:600 .95rem "Bricolage Grotesque",system-ui,sans-serif;padding:10px 16px;border-radius:999px;border:2px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--red);border-color:var(--red);color:#fff}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.recipe{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px}
+.recipe h3{font-size:2rem;color:var(--red)}
+.meta{display:flex;flex-wrap:wrap;gap:16px;margin:10px 0 18px;color:var(--muted);font-size:.95rem}
+.meta b{color:var(--ink)}
+.cols{display:grid;grid-template-columns:1fr;gap:28px}
+@media(min-width:720px){.cols{grid-template-columns:5fr 7fr}}
+h4{font:800 1.1rem "Bricolage Grotesque",system-ui,sans-serif;margin:0 0 10px}
+ul.ing{list-style:none;margin:0;padding:0}
+ul.ing li{padding:7px 0 7px 30px;position:relative;cursor:pointer;border-bottom:1px dashed var(--line);font-size:1rem;line-height:1.45}
+ul.ing li::before{content:"";position:absolute;left:2px;top:12px;width:16px;height:16px;border:2px solid var(--gold);border-radius:4px}
+ul.ing li.done{color:var(--muted);text-decoration:line-through}
+ul.ing li.done::before{background:var(--gold)}
+ol.steps{margin:0;padding-left:22px}
+ol.steps li{margin-bottom:12px;padding-left:4px}
+.tip{margin-top:20px;padding:14px 16px;border-left:5px solid var(--gold);background:color-mix(in srgb,var(--gold) 14%,transparent);font-size:1rem}
+.hint{font-size:.9rem;color:var(--muted);margin:0 0 10px}
+.menu{margin-top:56px}
+.menu ul{padding-left:20px;margin:0}
+.menu li{margin-bottom:8px}
+footer{text-align:center;color:var(--muted);padding:0 20px 40px;font-size:.95rem}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>Nasi Padang buatan sendiri</h1>
+  <p>Lima lauk andalan rumah makan Padang, dengan takaran dan langkah yang bisa kamu ikuti di dapur rumah.</p>
+  <svg viewBox="0 0 640 150" role="img" aria-label="Siluet atap gonjong Rumah Gadang">
+    <path fill="#FFF3D6" d="M0 150V120h90q10-60 40-100q-8 50 22 70q40 8 80-4q10-30 30-30q10 20 18 30h100q8-10 18-30q20 0 30 30q40 12 80 4q30-20 22-70q30 40 40 100h90v30z" opacity=".95"/>
+    <rect x="0" y="138" width="640" height="12" fill="#E0A100"/>
+  </svg>
+</header>
+
+<main>
+  <h2>Pilih resep</h2>
+  <p class="lead">Ketuk bahan untuk mencoret yang sudah kamu siapkan.</p>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <article class="recipe" id="recipe" role="tabpanel" aria-live="polite"></article>
+
+  <section class="menu">
+    <h2>Susun piringmu</h2>
+    <p class="lead">Nasi Padang paling enak kalau ada rasa pedas, gurih, segar, dan pahit dalam satu piring. Urutan yang biasa dipakai:</p>
+    <ul>
+      <li>Nasi putih hangat sebagai dasar, lalu siram sedikit kuah gulai.</li>
+      <li>Satu lauk utama: rendang atau gulai ayam.</li>
+      <li>Satu sayur: daun singkong rebus yang agak pahit menyeimbangkan santan.</li>
+      <li>Telur balado atau sambal ijo untuk pedasnya.</li>
+      <li>Kerupuk jangek atau kerupuk merah, kalau ada.</li>
+    </ul>
+  </section>
+</main>
+<footer>Selamat makan, bacarito sambia makan.</footer>
+
+<script>
+const R=[
+{n:"Rendang Daging",t:"3 jam",p:"6 porsi",lvl:"Sedang",
+ing:["1 kg daging sapi (sandung lamur), potong 4 cm","1 liter santan kental dari 2 butir kelapa","3 lembar daun jeruk","2 lembar daun kunyit","2 batang serai, memarkan","1 ruas lengkuas, memarkan","1 sdm asam kandis","Garam dan gula secukupnya","Bumbu halus: 10 bawang merah, 5 bawang putih, 8 cabai merah besar, 15 cabai keriting, 3 cm jahe, 3 cm kunyit, 1 sdt ketumbar"],
+st:["Campur bumbu halus, daun jeruk, daun kunyit, serai, lengkuas, asam kandis, dan santan dalam wajan besar.","Masukkan daging. Masak dengan api sedang sambil sesekali diaduk agar santan tidak pecah.","Setelah kuah menyusut dan mengental (sekitar 1,5 jam), kecilkan api.","Terus aduk perlahan sampai santan mengeluarkan minyak dan bumbu berubah cokelat gelap, sekitar 1,5 jam lagi.","Koreksi rasa dengan garam dan sedikit gula. Rendang siap saat kering, hitam kecokelatan, dan berminyak."],
+tip:"Rendang makin enak setelah didiamkan semalam. Simpan di kulkas hingga seminggu atau panaskan ulang tanpa menambah air."},
+{n:"Gulai Ayam",t:"50 menit",p:"4 porsi",lvl:"Mudah",
+ing:["1 ekor ayam (±1 kg), potong 8","600 ml santan sedang","2 lembar daun salam","2 lembar daun jeruk","1 batang serai, memarkan","1 ruas lengkuas, memarkan","2 sdm minyak untuk menumis","Garam dan gula secukupnya","Bumbu halus: 8 bawang merah, 4 bawang putih, 4 cabai merah, 3 cm kunyit, 3 cm jahe, 3 butir kemiri, 1 sdt ketumbar, ½ sdt jintan"],
+st:["Tumis bumbu halus bersama daun salam, daun jeruk, serai, dan lengkuas sampai harum dan matang.","Masukkan ayam, aduk sampai berubah warna.","Tuang santan sedikit demi sedikit sambil diaduk agar tidak pecah.","Masak dengan api kecil 30 menit sampai ayam empuk dan kuah kuning pekat.","Bumbui garam dan gula, lalu angkat."],
+tip:"Tambahkan sedikit perasan jeruk nipis saat disajikan supaya kuah santan terasa lebih segar."},
+{n:"Sambal Ijo",t:"20 menit",p:"6 porsi",lvl:"Mudah",
+ing:["250 g cabai hijau keriting","6 buah cabai rawit hijau","5 bawang merah","3 bawang putih","2 tomat hijau, potong","1 sdt garam","½ sdt gula","2 sdm minyak","Perasan ½ jeruk nipis"],
+st:["Rebus sebentar cabai, bawang, dan tomat hijau sekitar 3 menit, lalu tiriskan.","Ulek kasar semua bahan bersama garam dan gula.","Panaskan minyak, tumis sambal 5 menit sampai harum dan airnya habis.","Tambahkan perasan jeruk nipis, aduk, dan angkat."],
+tip:"Supaya warna hijaunya tetap cerah, jangan masak terlalu lama dan jangan tutup wajan."},
+{n:"Daun Singkong",t:"30 menit",p:"4 porsi",lvl:"Mudah",
+ing:["300 g daun singkong","1 lembar daun salam","1 batang serai, memarkan","200 ml santan","3 bawang merah, iris","2 bawang putih, iris","2 cabai merah, iris","Garam secukupnya","Air untuk merebus"],
+st:["Rebus daun singkong dengan daun salam dan sedikit garam sampai layu dan empuk, sekitar 15 menit.","Tiriskan dan peras airnya.","Tumis bawang merah, bawang putih, dan cabai sampai harum.","Masukkan santan dan serai, masak sampai mendidih.","Campur daun singkong, aduk rata dan masak 5 menit."],
+tip:"Rebus dengan wajan tanpa tutup agar daunnya tidak terlalu pahit dan warnanya tetap hijau."},
+{n:"Telur Balado",t:"25 menit",p:"4 porsi",lvl:"Mudah",
+ing:["6 butir telur rebus, kupas","Minyak untuk menggoreng","Bumbu halus: 8 cabai merah keriting, 5 cabai rawit, 5 bawang merah, 3 bawang putih","1 tomat, iris","½ sdt garam, 1 sdt gula","1 sdt perasan jeruk nipis"],
+st:["Goreng telur rebus sebentar sampai kulitnya agak keriput dan kecokelatan, lalu angkat.","Tumis bumbu halus dengan sedikit minyak sampai matang dan harum.","Masukkan tomat, garam, dan gula, masak sampai sambal agak kering.","Masukkan telur, aduk rata, lalu tambahkan jeruk nipis."],
+tip:"Telur dingin lebih mudah digoreng tanpa pecah. Rebus lebih dulu, lalu dinginkan beberapa jam."}
+];
+const tabs=document.getElementById("tabs"),box=document.getElementById("recipe");
+function show(i){
+  [...tabs.children].forEach((b,j)=>b.setAttribute("aria-selected",j===i));
+  const r=R[i];
+  box.innerHTML=`<h3>${r.n}</h3><div class="meta"><span>Waktu: <b>${r.t}</b></span><span>Hasil: <b>${r.p}</b></span><span>Tingkat: <b>${r.lvl}</b></span></div>
+  <div class="cols"><div><h4>Bahan</h4><p class="hint">Ketuk untuk mencoret</p><ul class="ing">${r.ing.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+  <div><h4>Cara membuat</h4><ol class="steps">${r.st.map(x=>`<li>${x}</li>`).join("")}</ol><div class="tip"><b>Tips:</b> ${r.tip}</div></div></div>`;
+  box.querySelectorAll(".ing li").forEach(li=>li.onclick=()=>li.classList.toggle("done"));
+}
+R.forEach((r,i)=>{const b=document.createElement("button");b.textContent=r.n;b.setAttribute("role","tab");b.onclick=()=>show(i);tabs.appendChild(b)});
+show(0);
+</script>
+</body>
+</html>
